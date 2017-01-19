@@ -1,0 +1,175 @@
+
+CONFIGURE:
+
+	git config --global user.name "Mark Glenn"
+	git config --global user.email "mark.glenn@mydomain.com"
+
+
+CLONE A REMOTE REPO:
+
+	git clone git@github.com:<MyGroup>/<MyRepository.git> MyRepository
+
+
+ADD NEW FILES TO LOCAL REPO:
+
+	git add .
+
+
+COMMIT LOCAL CHANGES (ALSO ADDS NEW FILES):
+
+	git commit -a -m "<annotation>"
+
+
+PULL LATEST FROM REMOTE REPO:
+
+	git pull origin
+
+
+PUSH CHANGES ON MASTER BRANCH FROM LOCAL TO REMOTE REPO:
+
+	git push origin master
+
+
+TAGGING:
+
+	git tag -a <tag name> -m "<annotation>"
+	git tag
+	git show <tag name>
+
+
+PUSH TAG:
+
+	git push origin <tag name>
+
+
+LIST BRANCHES:
+
+	git branch
+
+
+CREATE A NEW BRANCH:
+
+	git branch <branch>
+
+
+DELETE A BRANCH:
+
+	git branch -d <branch>
+
+
+SWITCH BRANCH:
+
+	git checkout <branch>
+	git checkout -b <branch> (if <branch> doesnt exist, it will be created)
+
+
+WHICH BRANCH AM I ON?:
+
+	git status
+
+
+MERGE SPECIFIED BRANCH TO CURRENT BRANCH:
+
+	git merge <branch>
+	git merge --no-ff <branch> - always generate a merge commit (even if it was a fast-forward merge)
+
+
+REMOVE A FILE FROM GIT SOURCE CONTROL WITHOUT DELETING IT FROM THE FILESYSTEM:
+
+	git rm --cached filename
+
+
+
+
+
+
+C:\Users\mlglenn\.gitconfig
+
+git config --global user.name "Mark Glenn"
+git config --global user.email "mark.glenn@mydomain.com"
+
+
+Remember these 4 commands:
+
+git add .
+
+git commit -m
+
+git pull origin
+
+git push origin master
+
+
+C:\GitHub_Projects\my_git_repo\my>git remote -v
+origin  git@git.company.net:mygroup/myrepo.git (fetch)
+origin  git@git.company.net:mygroup/myrepo.git (push)
+
+
+[user]
+               name = Mark Glenn
+               email = mark.glenn@mydomain.com
+[core]
+               autocrlf = true
+               whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[help]
+               autocorrect = 1
+
+[color]
+               branch = auto
+               diff = auto
+               status = auto
+               ui = auto
+               interactive = auto
+
+[color "branch"]
+               current = yellow bold
+               local = yellow
+               remote = green
+
+[color "diff"]
+               meta = yellow bold
+               frag = magenta bold
+               old = red bold
+               new = green bold
+
+[color "status"]
+               added = yellow
+               changed = green
+               untracked = cyan
+
+[alias]
+               aa = add -A
+               ls = log --decorate --pretty=format:'%C(green)%h%Creset [%C(red)%an%Creset] (%C(normal)%ar%Creset) - %s'
+               svnr = svn rebase
+               svnc = svn dcommit
+               clog = svn log
+               co = checkout
+               cm = "checkout master"
+               stat = status
+               unstage = reset HEAD
+               uncommit = reset --soft HEAD^
+               last = log -1 HEAD
+               b = branch -v
+               r = remote -v
+               t = tag -l
+               cp = cherry-pick -x
+               ribbon = tag --force _ribbon origin/master
+               catchup = log --patch --reverse --topo-order _ribbon..origin/master
+
+[diff]
+               tool = opendiff
+
+[difftool]
+               prompt = false
+
+[difftool "opendiff"]
+               cmd = /usr/bin/opendiff \"$LOCAL\" \"$REMOTE\" -merge \"$MERGED\" | cat
+
+[merge]
+               summary = true
+
+[gc]
+               auto = 1
+
+[push]
+               default = simple
